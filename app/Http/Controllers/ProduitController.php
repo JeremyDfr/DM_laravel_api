@@ -45,9 +45,7 @@ class ProduitController extends Controller
      */
     public function update(Request $request, Produit $produit): JsonResponse
     {
-        $produit->update([
-            'status' => $request->status
-        ]);
+        $produit->fill($request->input());
 
         return response()->json([
             'status' => 'OK',

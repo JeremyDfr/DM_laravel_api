@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Produit;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -95,6 +96,9 @@ class CourseController extends Controller
                 'message' => 'Aucune liste ne correspond'
             ]);
         }
+
+        $productsId = $courseExist->produits()->get()->pluck('id');
+        Produit::destroy($productsId);
 
         $courseExist->delete();
 

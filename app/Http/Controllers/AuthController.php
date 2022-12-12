@@ -98,4 +98,8 @@ class AuthController extends Controller
             ]);
         }
     }
+
+    public function fictiveFunctionForPullRequest() {
+        // Code improve library
+    }
 }
